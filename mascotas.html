@@ -4,56 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Pets</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assest/css/styles.css">
 </head>
 <body>
-
+ 
     <header>
-        <h1>My Pets 🐾</h1>
+        <h1>My Pets</h1>
         <nav>
             <a href="index.html">← Back to portfolio</a>
         </nav>
     </header>
-
+ 
     <main>
-
+ 
         <section id="gallery">
             <h2>Meet my pets</h2>
-
-            <article class="pet">
-                <!-- Replace this with <img src="max.jpg" alt="Max"> when you have your photo -->
-                <div class="pet-emoji">🐶</div>
-                <div>
-                    <h3>Max</h3>
-                    <p>Golden Retriever, 3 years old. Loves running and stealing socks.</p>
-                </div>
-            </article>
-
-            <article class="pet">
-                <!-- Replace this with <img src="luna.jpg" alt="Luna"> when you have your photo -->
-                <div class="pet-emoji">🐱</div>
-                <div>
-                    <h3>Luna</h3>
-                    <p>Siamese cat, 5 years old. Sleeps all day and judges everyone.</p>
-                </div>
-            </article>
-
-            <article class="pet">
-                <!-- Replace this with <img src="coco.jpg" alt="Coco"> when you have your photo -->
-                <div class="pet-emoji">🐰</div>
-                <div>
-                    <h3>Coco</h3>
-                    <p>Dutch rabbit, 1 year old. Obsessed with carrots and exploring everything.</p>
-                </div>
-            </article>
-
+ 
+            <div class="flex-gallery">
+ 
+                <article class="pet">
+                    <div class="pet_box"><img src="https://misanimales.com/wp-content/uploads/2021/07/golden-retriever-valla-768x576.jpg?auto=webp&quality=7500&width=640&crop=16:9,smart,safe&format=webp&optimize=medium&dpr=2&fit=cover&fm=webp&q=75&w=640&h=360" alt="Retriever"></div>
+                    <div>
+                        <h3>Max</h3>
+                        <p>Golden Retriever, 3 years old. Loves running and stealing socks.</p>
+                    </div>
+                </article>
+ 
+                <article class="pet">
+                    <div class="pet_box"><img src="https://www.cozycatfurniture.com/image/cache/wp/ij/siamese-cat-cover.webp" alt="cat"></div>
+                    <div>
+                        <h3>Luna</h3>
+                        <p>Siamese cat, 5 years old. Sleeps all day and judges everyone.</p>
+                    </div>
+                </article>
+ 
+                <article class="pet">
+                    <div class="pet_box"><img src="https://arba.net/wp-content/uploads/2018/11/Dutch-300x259.jpg.webp" alt="rabbit"></div>
+                    <div>
+                        <h3>Coco</h3>
+                        <p>Dutch rabbit, 1 year old. Obsessed with carrots and exploring everything.</p>
+                    </div>
+                </article>
+ 
+            </div>
+ 
+            <h2 class="grid-title">Photo Mosaic</h2>
+ 
+            <div class="grid-gallery">
+                <img src="https://misanimales.com/wp-content/uploads/2021/07/golden-retriever-valla-768x576.jpg" alt="Max">
+                <img src="https://www.cozycatfurniture.com/image/cache/wp/ij/siamese-cat-cover.webp" alt="Luna">
+                <img src="https://arba.net/wp-content/uploads/2018/11/Dutch-300x259.jpg.webp" alt="Coco">
+            </div>
+ 
         </section>
-
+ 
     </main>
-
+ 
     <footer>
         <p>Joseph Herreño © 2026 — <a href="index.html">Back to portfolio</a></p>
     </footer>
-
+ 
+    <script src="script.js"></script>
+ 
 </body>
 </html>
