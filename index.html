@@ -4,27 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joseph Herreño</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assest/css/styles.css">
 </head>
 <body>
-
+ 
     <header>
         <h1>Joseph Herreño</h1>
         <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <a href="mascotas.html">My Pets 🐾</a>
+            <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="pets.html">My Pets</a></li>
+            </ul>
         </nav>
     </header>
-
+ 
     <main>
-
+ 
         <section id="about">
             <h2>About me</h2>
-            <p>Hi! I'm Joseph, a systems engineering student from Barranquilla, Colombia. I enjoy coding, learning new things, and solving problems one step at a time.</p>
+ 
+            <!-- id added so Java -->
+            <p id="about-text">
+                Hello, my name is Joseph. I am a Systems Engineering student based in Barranquilla, Colombia, with a strong passion for software development and continuous learning. I enjoy tackling challenges through logical thinking and structured problem-solving, always striving to build efficient and scalable solutions while growing as a developer.
+            </p>
+ 
+            <!-- Button triggers the JavaScript interaction -->
+            <button id="change-text-btn">Read more about me</button>
+ 
+            <!-- Hidden box revealed by JavaScript on click -->
+            <div id="welcome-message">
+                <p>Welcome to my portfolio! I am glad you are here. Feel free to explore my projects and contact me anytime.</p>
+            </div>
         </section>
-
+ 
+        <!-- ===== SKILLS SECTION ===== -->
+        <section id="skills">
+            <h2>Languages I Know</h2>
+ 
+            <div class="skills-list">
+ 
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo">
+                    <span>Python</span>
+                </div>
+ 
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 logo">
+                    <span>HTML</span>
+                </div>
+ 
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 logo">
+                    <span>CSS</span>
+                </div>
+ 
+            </div>
+        </section>
+ 
         <section id="projects">
             <h2>Projects</h2>
             <ul>
@@ -33,7 +71,7 @@
                 <li><a href="https://github.com/joseph080508/week3_project.git">English Project</a></li>
             </ul>
         </section>
-
+ 
         <section id="contact">
             <h2>Contact</h2>
             <form action="#" method="post">
@@ -43,12 +81,15 @@
                 <button type="submit">Send</button>
             </form>
         </section>
-
+ 
     </main>
-
+ 
     <footer>
-        <p>Joseph Herreño © 2026</p>
+        <p>Joseph Herreño - 2026</p>
     </footer>
-
+ 
+    <!-- script.js linked just before closing body tag -->
+    <script src="script.js"></script>
+ 
 </body>
 </html>
