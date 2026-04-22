@@ -1,0 +1,435 @@
+ // ── VARIABLES ─────────────────────────────────────────────
+$color-bg:    #1a1a1a;
+$text:        #e8e8e8;
+$text-muted:  #a0a0a0;
+$accent:      #39ff14;
+$border:      #333333;
+$max-width:   700px;
+$font:        Georgia, serif;
+ 
+ 
+// ── MIXINS ────────────────────────────────────────────────
+ 
+// Reusable hover underline effect for links
+@mixin link-hover {
+    text-decoration: none;
+    color: $text;
+    &:hover {
+        color: $accent;
+        text-decoration: underline;
+    }
+}
+ 
+// Reusable flex row layout
+@mixin flex-row($gap: 20px) {
+    display: flex;
+    gap: $gap;
+    align-items: flex-start;
+}
+ 
+ 
+// ── RESET ─────────────────────────────────────────────────
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+ 
+// ── BASE ──────────────────────────────────────────────────
+body {
+    font-family: $font;
+    background-color: $color-bg;
+    color: $text;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+ 
+// All images are responsive — they never overflow their container
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+ 
+ 
+// ── HEADER ────────────────────────────────────────────────
+// TASK 2: header uses flexbox to align title and nav
+header {
+    display: flex;                   // activate flexbox
+    justify-content: space-between;  // title left, nav right
+    align-items: center;             // center everything vertically
+    flex-wrap: wrap;                 // wrap on small screens
+    gap: 12px;
+    border-bottom: 2px solid $text;
+    padding-bottom: 16px;
+    margin-bottom: 40px;
+
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+ 
+    h1 {
+        font-size: 32px;
+    }
+ 
+    // TASK 2: nav links distributed evenly with flexbox
+    nav {
+        display: flex;                   // links in a row
+        justify-content: space-between;  // distribute links evenly
+        align-items: center;             // center vertically
+        gap: 16px;
+        flex-wrap: wrap;
+ 
+        a {
+            font-size: 15px;
+            @include link-hover;
+        }
+    }
+}
+ 
+ 
+// ── SECTIONS ──────────────────────────────────────────────
+section {
+    margin-bottom: 48px;
+ 
+    h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+        border-left: 4px solid $accent;
+        padding-left: 10px;
+    }
+ 
+    p {
+        line-height: 25px;
+        color: $text-muted;
+    }
+}
+ 
+ 
+// ── SKILLS SECTION ────────────────────────────────────────
+// Logos displayed in a row using flexbox
+#skills {
+ 
+    .skills-list {
+        display: flex;          // logos side by side
+        align-items: center;    // center vertically
+        gap: 32px;              // space between each logo
+        flex-wrap: wrap;        // wrap on small screens
+    }
+ 
+    // Each skill: logo + label stacked vertically
+    .skill-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+ 
+        img {
+            width: 60px;
+            height: 60px;
+        }
+ 
+        span {
+            font-size: 14px;
+            color: $text-muted;
+        }
+    }
+}
+ 
+ 
+// ── PROJECTS: CSS GRID ────────────────────────────────────
+// TASK 3: projects section uses grid layout
+#projects {
+ 
+    // The ul becomes the grid container
+    ul {
+        display: grid;                       // activate grid
+        grid-template-columns: 200px 200px 200px; // 3 columns
+        gap: 20px;                           // space between cards
+        list-style: none;
+        padding: 0;
+    }
+ 
+    // Each li is a grid card
+    li {
+        border: 1px solid $border;
+        border-radius: 6px;
+        padding: 16px;
+ 
+        a {
+            font-size: 16px;
+            color: $accent;
+            text-decoration: none;
+ 
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+ 
+ 
+// ── CONTACT FORM ──────────────────────────────────────────
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 480px;
+ 
+    // Shared styles for inputs and textarea
+    input,
+    textarea {
+        padding: 12px 15px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        font-family: $font;
+        font-size: 15px;
+        background: $color-bg;
+ 
+        &:focus {
+            outline: none;
+            border-color: $accent;
+        }
+    }
+ 
+    textarea {
+        height: 120px;
+        resize: vertical;
+    }
+ 
+    button {
+        padding: 10px 24px;
+        background: $text;
+        color: $color-bg;
+        border: none;
+        border-radius: 4px;
+        font-size: 15px;
+        cursor: pointer;
+        align-self: flex-start;
+ 
+        &:hover {
+            background: $accent;
+        }
+    }
+}
+ 
+ 
+// ── ABOUT: welcome message hidden by default ───────────────
+// JavaScript will show this when the button is clicked
+#welcome-message {
+    display: none;
+    margin-top: 16px;
+    padding: 16px;
+    border-left: 4px solid $accent;
+    background: #222222;
+ 
+    p {
+        color: $text;
+    }
+}
+ 
+// Button inside about section
+#about button {
+    padding: 10px 24px;
+    background: $text;
+    color: $color-bg;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 14px;
+ 
+    &:hover {
+        background: $accent;
+    }
+}
+ 
+ 
+// ── PETS GALLERY ──────────────────────────────────────────
+#gallery {
+ 
+    // TASK 4: Flexbox — images wrap into rows automatically
+    .flex-gallery {
+        display: flex;       // activate flexbox
+        flex-wrap: wrap;     // jump to next row when no space
+        gap: 20px;
+        margin-bottom: 48px;
+    }
+ 
+    // Each pet article as a flex item
+    .pet {
+        width: 200px;
+        border: 1px solid $border;
+        border-radius: 6px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+ 
+        .pet_box {
+            font-size: 4rem;
+            width: 200px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $border;
+            flex-shrink: 0;
+        }
+ 
+        img {
+            width: 200px;
+            height: 140px;
+            object-fit: cover;
+        }
+ 
+        div:last-child {
+            padding: 10px 12px;
+        }
+ 
+        h3 {
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+ 
+        p {
+            font-size: 13px;
+            color: $text-muted;
+            line-height: 20px;
+        }
+    }
+ 
+    // TASK 4: Grid — mosaic layout
+    h2.grid-title {
+        font-size: 20px;
+        margin-bottom: 14px;
+        margin-top: 16px;
+        border-left: 4px solid $accent;
+        padding-left: 10px;
+    }
+ 
+    .grid-gallery {
+        display: grid;                              // activate grid
+        grid-template-columns: 200px 200px 200px;   // 3 columns
+        gap: 12px;                                  // space between images
+ 
+        img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+    }
+}
+ 
+ 
+// ── FOOTER ────────────────────────────────────────────────
+footer {
+    margin-top: 70px;
+    border-top: 1px solid $border;
+    padding-top: 16px;
+    font-size: 14px;
+    color: darkgray;
+ 
+    a {
+        color: $accent;
+        text-decoration: none;
+ 
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+ 
+ 
+// ============================================================
+// MEDIA QUERIES — Responsive design
+//
+// How it works:
+// @media (max-width: Xpx) = apply rules when screen <= X px
+// ============================================================
+ 
+ 
+// ── MOBILE: 480px and smaller ─────────────────────────────
+@media (max-width: 480px) {
+ 
+    // Header stacks vertically
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+ 
+        // Nav links become a column
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+ 
+    // Projects: 1 column
+    #projects ul {
+        grid-template-columns: 1fr;
+    }
+ 
+    // Flex gallery: smaller cards, 2 per row
+    #gallery {
+        .pet {
+            width: 140px;
+ 
+            .pet_box,
+            img {
+                width: 140px;
+                height: 100px;
+            }
+        }
+ 
+        // Grid gallery: 2 columns
+        .grid-gallery {
+            grid-template-columns: 140px 140px;
+ 
+            img {
+                width: 140px;
+                height: 110px;
+            }
+        }
+    }
+}
+ 
+ 
+// ── TABLET: 481px to 768px ────────────────────────────────
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+    // Projects: 2 columns
+    #projects ul {
+        grid-template-columns: 1fr 1fr;
+    }
+ 
+    // Gallery: 3 smaller columns
+    #gallery {
+        .pet {
+            width: 160px;
+ 
+            .pet_box,
+            img {
+                width: 160px;
+                height: 120px;
+            }
+        }
+ 
+        .grid-gallery {
+            grid-template-columns: 160px 160px 160px;
+ 
+            img {
+                width: 160px;
+                height: 120px;
+            }
+        }
+    }
+}
+ 
